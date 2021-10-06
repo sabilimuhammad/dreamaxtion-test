@@ -1,32 +1,26 @@
 <template>
-	<div>
-		<el-table v-for="data in tableData" :key="data.id" ref="filterTable" :data="tableData" style="width:100%" :row-class-name="tableRowClassName">
+	<div class="container">
+		<h1>DREAMAXTION TABLE INVENTORY</h1>
+		<el-table ref="filterTable" :data="tableData" style="width:100%">
 			<el-table-column
-				prop="date"
-				label="Date"
-				width="180">
+				prop="createdAt"
+				label="Date">
 			</el-table-column>
-			<el-table-column prop="name" label="Name" width="180"></el-table-column>
-			<el-table-column prop="image" label="Image" width="180" :src="data.image">
+			<el-table-column prop="name" label="Name"></el-table-column>
+			<el-table-column prop="avatar" label="Image">
 			</el-table-column>
 			<el-table-column
 				prop="qty"
 				label="Qty"
-				width="100"
-			> {{data.qty}}
-			</el-table-column>
-			<el-table-column
-				prop="tag"
-				label="Tag"
-				width="100"
-			> 
+				width="180"
+			>
 			</el-table-column>
 		</el-table>
 	</div>
 </template>
 
 <script>
-import InventoryItems from '../api/index.js'; 
+import InventoryItems from '@/api/index.js'; 
 
 export default {
 	data() {
@@ -38,14 +32,6 @@ export default {
 		this.getInventoryItems();
 	},
 	methods: {
-		tableRowClassName({rowIndex}) {
-        if (rowIndex === 1) {
-          return 'warning-row';
-        } else if (rowIndex === 3) {
-          return 'success-row';
-        }
-        return '';
-    },
 		async getInventoryItems() {
 			try{
 				const response = await InventoryItems.getInventoryItems();

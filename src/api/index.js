@@ -1,13 +1,13 @@
 import Vue from 'vue';
 
-const InventoryItems = 'datas';
-
 async function getInventoryItems() {
 	const response = await Vue.axios({
-		url : InventoryItems,
+		url : 'v1/dreamaxtion/test',
 		method : 'GET'
 	});
 	return response.data;
 }
 
-export default getInventoryItems;
+export default {
+	getInventoryItems
+};
