@@ -12,7 +12,6 @@
 			<el-table-column
 				prop="qty"
 				label="Qty"
-				width="180"
 			>
 			</el-table-column>
 		</el-table>
